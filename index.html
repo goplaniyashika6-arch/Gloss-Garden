@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- KANHA BEAUTY & SHINE - Home page.
+     Every page is its own .html file. The design of all pages is in style.css. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanha Beauty &amp; Shine ♡ Glosses that feel like a dream</title>
+
+  <!-- Link to the CSS file (the design of every page) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= TOP BAR (the same on every page) ================= -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a class="logo" href="index.html">Kanha Beauty &amp; Shine ♡</a>
+      <div class="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a class="bag-link" href="bag.html">🛍 Bag</a>
+    </div>
+  </div>
+
+  <!-- ================= HOME PAGE ================= -->
+  <div id="home">
+    <!-- Big first screen. The tick-box below is the Pause button (see style.css, section 4) -->
+    <div class="hero">
+      <input type="checkbox" id="pause-box">
+      <label class="pause-button" for="pause-box">Pause / play animation</label>
+
+      <div class="hero-photo">
+        <img class="hero-picture" src="images/hero.jpg" alt="Pink lip glosses with cherries and pearls">
+        <div class="hero-fade"></div>
+        <div class="hero-shine"></div>
+      </div>
+
+      <!-- Floating pearls and twinkling stars (the animation is written in style.css) -->
+      <span class="pearl" style="left:92%; width:28px; height:28px; animation-duration:13s; animation-delay:-12s"></span>
+      <span class="pearl" style="left:36%; width:19px; height:19px; animation-duration:19s; animation-delay:-3s"></span>
+      <span class="pearl" style="left:69%; width:29px; height:29px; animation-duration:11s; animation-delay:-16s"></span>
+      <span class="pearl" style="left:34%; width:24px; height:24px; animation-duration:12s; animation-delay:-13s"></span>
+      <span class="pearl" style="left:36%; width:31px; height:31px; animation-duration:14s; animation-delay:-2s"></span>
+      <span class="pearl" style="left:59%; width:35px; height:35px; animation-duration:11s; animation-delay:-18s"></span>
+      <span class="pearl" style="left:92%; width:21px; height:21px; animation-duration:14s; animation-delay:-18s"></span>
+      <span class="pearl" style="left:68%; width:19px; height:19px; animation-duration:20s; animation-delay:-12s"></span>
+      <span class="pearl" style="left:94%; width:19px; height:19px; animation-duration:14s; animation-delay:-1s"></span>
+      <span class="pearl" style="left:86%; width:35px; height:35px; animation-duration:13s; animation-delay:-9s"></span>
+      <span class="star" style="left:60%; top:28%; font-size:20px; animation-duration:3s; animation-delay:-4s">✦</span>
+      <span class="star" style="left:53%; top:33%; font-size:13px; animation-duration:4s; animation-delay:-2s">✦</span>
+      <span class="star" style="left:40%; top:80%; font-size:23px; animation-duration:3s; animation-delay:-4s">✦</span>
+      <span class="star" style="left:37%; top:36%; font-size:19px; animation-duration:6s; animation-delay:-2s">✦</span>
+      <span class="star" style="left:63%; top:68%; font-size:17px; animation-duration:5s; animation-delay:-1s">✦</span>
+      <span class="star" style="left:84%; top:33%; font-size:23px; animation-duration:4s; animation-delay:-0s">✦</span>
+      <span class="star" style="left:70%; top:48%; font-size:20px; animation-duration:6s; animation-delay:-2s">✦</span>
+      <span class="star" style="left:80%; top:67%; font-size:16px; animation-duration:3s; animation-delay:-0s">✦</span>
+
+      <div class="hero-text">
+        <p class="small-title">PRETTY LIPS ✦ HAPPY YOU</p>
+        <h1>Glosses that feel like a <i>dream</i></h1>
+        <p class="hero-sentence">Shine brighter. Feel softer. Because every shade tells a story.</p>
+        <a class="button" href="shop.html">Explore Now →</a>
+
+        <div class="brand-buttons">
+          <a class="brand-button" href="brands.html#brand-maybelline">MAYBELLINE</a>
+          <a class="brand-button" href="brands.html#brand-swiss-beauty">SWISS BEAUTY</a>
+          <a class="brand-button" href="brands.html#brand-mars">MARS</a>
+          <a class="brand-button" href="brands.html#brand-glam21">GLAM21</a>
+          <a class="brand-button" href="brands.html#brand-insight">INSIGHT</a>
+          <a class="brand-button" href="brands.html">→</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bestsellers -->
+    <div class="pink-background">
+      <div class="section">
+        <h2>Popular picks</h2>
+        <p class="sub-title">A few favourites to start with.</p>
+        <div class="product-grid">
+        <div class="card">
+          <div class="picture-box">
+            <img class="real" src="images/mars-lip-gloss.jpg" alt="Mars Lip Gloss">
+            <div class="picture-fade"></div>
+            <label class="heart"><input type="checkbox"><span></span></label>
+          </div>
+          <div class="card-text">
+            <h3>Mars Lip Gloss</h3>
+            <p class="small-text">₹199</p>
+            <div class="shades"><span class="shade"><i style="background:#e0529c"></i>Magic Pop</span><span class="shade"><i style="background:#8b5a3c"></i>Fudge</span><span class="shade"><i style="background:#f08aa0"></i>Gum</span><span class="shade"><i style="background:#5a2d1c"></i>Chocolate</span></div>
+            <a class="button" href="bag.html">Add to bag</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="picture-box">
+            <img class="real" src="images/swiss-beauty-lip-gloss.jpg" alt="Swiss Beauty Lip Gloss">
+            <div class="picture-fade"></div>
+            <label class="heart"><input type="checkbox"><span></span></label>
+          </div>
+          <div class="card-text">
+            <h3>Swiss Beauty Lip Gloss</h3>
+            <p class="small-text">₹199</p>
+            <div class="shades"><span class="shade"><i style="background:#8a5a3c"></i>Brown</span><span class="shade"><i style="background:#f4a28c"></i>Peach</span><span class="shade"><i style="background:#5a3a2a"></i>Dark Brown</span><span class="shade"><i style="background:#e87a9a"></i>Pink</span></div>
+            <a class="button" href="bag.html">Add to bag</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="picture-box">
+            <img class="real" src="images/maybelline-compact-foundation.jpg" alt="Maybelline Compact Foundation">
+            <div class="picture-fade"></div>
+            <label class="heart"><input type="checkbox"><span></span></label>
+          </div>
+          <div class="card-text">
+            <h3>Maybelline Compact Foundation</h3>
+            <p class="small-text">₹549</p>
+            <a class="button" href="bag.html">Add to bag</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="picture-box">
+            <img class="real" src="images/insight-hydrating-gloss.jpg" alt="Insight Hydrating Gloss">
+            <div class="picture-fade"></div>
+            <label class="heart"><input type="checkbox"><span></span></label>
+          </div>
+          <div class="card-text">
+            <h3>Insight Hydrating Gloss</h3>
+            <p class="small-text">₹249</p>
+            <div class="shades"><span class="shade"><i style="background:#b5735a"></i>Muted Maple</span><span class="shade"><i style="background:#f4a28c"></i>Peach Perfection</span><span class="shade"><i style="background:#ecc0b4"></i>Barely There</span><span class="shade"><i style="background:#e88aa0"></i>Sweet Peony</span><span class="shade"><i style="background:#f0a6b4"></i>Blush Bloom</span></div>
+            <a class="button" href="bag.html">Add to bag</a>
+          </div>
+        </div>
+        </div>
+        <p><a href="shop.html">See all →</a></p>
+      </div>
+    </div>
+
+    <!-- Why shop with us -->
+    <div class="section">
+      <h2>Why Kanha Beauty &amp; Shine?</h2>
+      <p class="sub-title">A little colour makes a big difference.</p>
+      <div class="three-boxes">
+        <div><b>Shades for every mood</b>From soft nude to cherry red.</div>
+        <div><b>Brands you love</b>Maybelline, Swiss Beauty, Mars, Glam21, Insight and more.</div>
+        <div><b>Find your colour</b>See every shade colour on the card.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (the same on every page) ================= -->
+  <div class="footer">
+    <div class="logo">Kanha Beauty &amp; Shine ♡</div>
+    <p>A little colour makes a big difference.</p>
+    <p>© 2026 Kanha Beauty &amp; Shine | BCA Student Project</p>
+  </div>
+
+</body>
+</html>

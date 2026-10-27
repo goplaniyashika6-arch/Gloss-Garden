@@ -1,0 +1,894 @@
+/* ==================================================================
+   KANHA BEAUTY & SHINE - style.css
+   This ONE file gives the design to ALL the pages (every page links to it).
+   (There is no JavaScript in this project. Only HTML and CSS.)
+
+   Colours used:
+     #a8566b = main pink (buttons, headings)    #7f3a4f = dark pink
+     #fff8f6 = page background                  #fbe9e6 = soft pink boxes
+     #4a3236 = dark text                        #7d6468 = grey text
+     #f0d9dc = thin border lines
+   ================================================================== */
+
+
+/* ---------- 1. BASIC STYLE FOR THE WHOLE PAGE ---------- */
+* {
+  box-sizing: border-box;      /* padding and border are counted inside the width */
+}
+
+html {
+  scroll-behavior: smooth;     /* links that jump inside the page scroll smoothly */
+  scroll-padding-top: 90px;    /* leaves space for the top bar */
+}
+
+body {
+  margin: 0;
+  background-color: #fff8f6;
+  color: #4a3236;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* A section = one block of content, centred, with space around it */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.section h2 {
+  font-size: 34px;
+  color: #a8566b;
+  margin: 0 0 6px 0;
+}
+
+.sub-title {
+  color: #7d6468;
+  margin: 0 0 22px 0;
+}
+
+.pink-background {
+  background-color: #fbe9e6;
+}
+
+
+/* ---------- 2. TOP BAR ---------- */
+.top-bar {
+  position: sticky;            /* stays at the top while scrolling */
+  top: 0;
+  z-index: 20;
+  background-color: #fdece8;
+  border-bottom: 1px solid #f0d9dc;
+}
+
+.top-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 72px;
+  display: flex;               /* puts logo, menu and bag in one row */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  white-space: nowrap;
+  color: #a8566b;
+}
+
+.menu a {
+  margin: 0 15px;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  color: #a8566b;
+}
+
+.menu a.active {               /* the page you are on */
+  color: #a8566b;
+  border-bottom: 2px solid #a8566b;
+  font-weight: bold;
+}
+
+.bag-link {
+  padding: 8px 16px;
+  background-color: #fbe9e6;
+  color: #a8566b;
+  border-radius: 20px;
+}
+
+
+/* ---------- 3. BUTTONS ---------- */
+.button {
+  display: inline-block;
+  padding: 13px 26px;
+  background-color: #a8566b;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #7f3a4f;
+}
+
+
+/* ---------- 4. HERO (the big first screen) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;            /* hides anything that goes outside the box */
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(100deg, #fde9e4, #f8d6cf, #f1bfb6);
+  color: #7a2f45;
+}
+
+/* The box on the right side that holds the photo */
+.hero-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  overflow: hidden;
+}
+
+/* ANIMATION 1: the photo zooms slowly in and out */
+.hero-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills the box without stretching the photo */
+  object-position: 60% center;
+  animation: zoom 22s ease-in-out infinite alternate;
+}
+
+@keyframes zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+
+/* A pink fade so the photo blends into the left side */
+.hero-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f9dad3, rgba(249, 218, 211, 0) 45%);
+}
+
+/* ANIMATION 2: a white shine moves across the photo */
+.hero-shine {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+  animation: shine 7s ease-in-out infinite;
+}
+
+@keyframes shine {
+  from { transform: translateX(0); }
+  to   { transform: translateX(200%); }
+}
+
+/* ANIMATION 3: pearls float up (the size and place of each pearl is written in the HTML) */
+.pearl {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(circle at 30% 30%, white, #f7cdc8, #d69696);
+  animation: floatUp linear infinite;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0); opacity: 0; }
+  15%  { opacity: 0.9; }
+  85%  { opacity: 0.9; }
+  100% { transform: translateY(-700px); opacity: 0; }
+}
+
+/* ANIMATION 4: stars twinkle */
+.star {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  opacity: 0;
+  text-shadow: 0 0 10px white;
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0; transform: scale(0.4); }
+  50%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.4); }
+}
+
+/* The words on top of the hero */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px 60px 20px;
+}
+
+.hero-text p, .hero-text h1 {
+  max-width: 520px;
+}
+
+.small-title {
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: #a2606c;
+}
+
+.hero-text h1 {
+  font-size: 68px;
+  line-height: 1.05;
+  margin: 18px 0 20px 0;
+  color: #8f3350;
+}
+
+.hero-sentence {
+  font-size: 18px;
+  color: #7d4a56;
+  margin-bottom: 26px;
+}
+
+.brand-buttons {
+  margin-top: 44px;
+}
+
+.brand-button {
+  display: inline-block;
+  margin: 0 8px 10px 0;
+  padding: 14px 20px;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #6d3a47;
+  border-radius: 30px;
+}
+
+.brand-button:hover {
+  background-color: white;
+}
+
+/* PAUSE BUTTON without JavaScript:
+   a hidden tick-box + a label. When the label is clicked, the tick-box
+   becomes "checked", and CSS then pauses every animation after it. */
+#pause-box {
+  display: none;
+}
+
+.pause-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #6d3a47;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#pause-box:checked ~ * ,
+#pause-box:checked ~ * * {
+  animation-play-state: paused;
+}
+
+
+/* ---------- 6. PRODUCT CARDS ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));   /* as many cards per row as fit */
+  gap: 18px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #f0d9dc;
+  border-radius: 18px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px -16px rgba(150, 70, 90, 0.6);
+  transform: translateY(-3px);
+}
+
+.picture-box {
+  position: relative;
+  aspect-ratio: 4 / 3;         /* every product picture has the same shape, on every screen */
+  overflow: hidden;
+  background: linear-gradient(160deg, #fde9e4, #f3c6bf);
+}
+
+.picture-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;         /* the whole product is shown without stretching */
+  transition: transform 0.5s ease;
+}
+
+/* A drawing used while a product has no photo yet */
+.picture-box img.placeholder {
+  padding: 14px 0;
+}
+
+.card:hover .picture-box img.real {
+  transform: scale(1.05);      /* the photo zooms in a little when you hover a card */
+}
+
+/* Photos are cut-outs, so their edges are faded to blend into the pink box */
+.picture-box img.photo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, black 45%, transparent 78%);
+}
+
+.picture-box img.real {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* real product photos fill the box */
+}
+
+/* A soft pink edge on top of the picture so the photo blends in */
+.picture-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(246, 211, 204, 0) 62%, rgba(246, 211, 204, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* HEART without JavaScript: a hidden tick-box. When it is checked,
+   the empty heart ♡ changes to a full heart ♥ (only the look changes). */
+.heart {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  color: #b52040;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.heart input {
+  display: none;
+}
+
+.heart span::before {
+  content: "♡";
+}
+
+.heart input:checked + span::before {
+  content: "♥";
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px 14px 14px 14px;
+}
+
+.title-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 19px;
+  color: #a8566b;
+  overflow-wrap: break-word;
+}
+
+.small-text {
+  margin: 2px 0;
+  color: #7d6468;
+  font-size: 14px;
+}
+
+/* Shade chips: a small colour dot + the shade name */
+.shades {
+  margin: 8px 0 12px 0;
+}
+
+.shade {
+  display: inline-block;
+  margin: 0 6px 6px 0;
+  padding: 3px 10px 3px 6px;
+  background-color: #fbe9e6;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+.shade i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  vertical-align: -1px;
+}
+
+.card .button {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+/* ---------- 7. SHOP PAGE ---------- */
+.group-title {
+  margin: 40px 0 14px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f0d9dc;
+  font-size: 26px;
+  color: #a8566b;
+}
+
+
+/* ---------- 8. BRANDS PAGE ---------- */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.brand-card {
+  padding: 22px;
+  background-color: white;
+  border: 1px solid #f0d9dc;
+  border-radius: 18px;
+}
+
+.brand-letter {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px auto;
+  background-color: #fbe9e6;
+  color: #a8566b;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.brand-card h3 {
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+.brand-card p {
+  margin: 0 0 10px 0;
+  color: #7d6468;
+  font-size: 14px;
+  text-align: center;
+}
+
+.brand-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.brand-card li {
+  margin-bottom: 4px;
+}
+
+.brand-card li a:hover {
+  color: #a8566b;
+  text-decoration: underline;
+}
+
+
+/* ---------- 9. THREE BOXES (Home and About pages) ---------- */
+.three-boxes {
+  display: flex;
+}
+
+.three-boxes div {
+  flex: 1;
+  margin-right: 14px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #f0d9dc;
+  border-radius: 16px;
+}
+
+.three-boxes div:last-child {
+  margin-right: 0;
+}
+
+.three-boxes b {
+  display: block;
+  margin-bottom: 4px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: #a8566b;
+}
+
+
+/* ---------- 10. CONTACT PAGE ---------- */
+.contact-layout {
+  display: flex;
+}
+
+.contact-left, .contact-right {
+  flex: 1;
+  padding-right: 30px;
+}
+
+.contact-right input, .contact-right textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #f0d9dc;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+
+/* ---------- 11. BAG PAGE ---------- */
+.bag-layout {
+  display: flex;
+}
+
+.bag-left {
+  flex: 2;
+  margin-right: 24px;
+}
+
+.bag-right {
+  flex: 1;
+  align-self: flex-start;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #f0d9dc;
+  border-radius: 18px;
+}
+
+.bag-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #f0d9dc;
+  border-radius: 16px;
+}
+
+.bag-item .picture-box {
+  width: 70px;
+  height: 70px;
+  aspect-ratio: auto;
+  margin-right: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bag-info {
+  flex: 1;
+}
+
+.bag-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #a8566b;
+}
+
+.bag-right p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px 0;
+}
+
+.bag-right .button {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.note-box {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background-color: #fbe9e6;
+  border-radius: 12px;
+  color: #7d6468;
+  font-size: 14px;
+}
+
+
+/* ---------- 12. FOOTER ---------- */
+.footer {
+  padding: 36px 20px;
+  background-color: #4a1a31;
+  color: white;
+  text-align: center;
+}
+
+.footer .logo {
+  color: #f4b8c8;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+
+/* ---------- 13. CONTACT DETAILS AND MAP ---------- */
+.contact-line a:hover {
+  color: #a8566b;
+  text-decoration: underline;
+}
+
+.map-box {
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #f0d9dc;
+  border-radius: 16px;
+}
+
+.map-box iframe {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border: 0;
+}
+
+img, iframe {
+  max-width: 100%;
+}
+
+
+/* ---------- 14. RESPONSIVE: laptops, tablets and phones ---------- */
+
+/* Small laptops and big tablets */
+@media (max-width: 1024px) {
+  .hero-photo {
+    width: 62%;
+  }
+  .hero-text h1 {
+    font-size: 56px;
+  }
+  .section {
+    padding: 40px 24px;
+  }
+}
+
+/* Tablets and phones */
+@media (max-width: 800px) {
+  html {
+    scroll-padding-top: 120px;     /* the top bar is taller on small screens */
+  }
+  .top-bar-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 16px;
+    row-gap: 2px;
+  }
+  .logo {
+    font-size: 22px;
+  }
+  .menu {
+    order: 3;
+    width: 100%;
+    padding-bottom: 4px;
+    text-align: center;
+  }
+  .menu a {
+    margin: 0 7px;
+  }
+
+  .hero {
+    align-items: flex-start;
+    min-height: 0;
+  }
+  .hero-text {
+    padding: 36px 20px 330px 20px;  /* empty space at the bottom is where the photo sits */
+  }
+  .hero-text h1 {
+    font-size: clamp(36px, 10vw, 50px);
+  }
+  .hero-sentence {
+    font-size: 16px;
+  }
+  .hero-photo {
+    top: auto;
+    width: 100%;
+    height: 300px;
+  }
+  .hero-fade {
+    background: linear-gradient(180deg, #f9dad3, rgba(249, 218, 211, 0) 45%);
+  }
+  .brand-buttons {
+    margin-top: 30px;
+  }
+  .brand-button {
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 36px 16px;
+  }
+  .section h2 {
+    font-size: 28px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .three-boxes, .contact-layout, .bag-layout {
+    display: block;
+  }
+  .three-boxes div {
+    margin: 0 0 12px 0;
+  }
+  .contact-left, .contact-right {
+    padding-right: 0;
+  }
+  .contact-right {
+    margin-top: 26px;
+  }
+  .bag-left {
+    margin-right: 0;
+  }
+  .bag-right {
+    margin-top: 18px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    border-radius: 14px;
+  }
+  .card-text {
+    padding: 10px 10px 12px 10px;
+  }
+  .card h3 {
+    font-size: 16px;
+  }
+  .small-text {
+    font-size: 13px;
+  }
+  .shades {
+    margin: 6px 0 10px 0;
+  }
+  .shade {
+    margin: 0 4px 4px 0;
+    padding: 2px 8px 2px 5px;
+    font-size: 12px;
+  }
+  .card .button {
+    padding: 9px 8px;
+    font-size: 14px;
+  }
+  .heart {
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+    line-height: 30px;
+  }
+  .group-title {
+    margin-top: 30px;
+    font-size: 22px;
+  }
+  .bag-item {
+    padding: 8px;
+  }
+  .bag-item .picture-box {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    aspect-ratio: auto;
+  }
+  .bag-info h3 {
+    font-size: 16px;
+  }
+  .map-box iframe {
+    height: 260px;
+  }
+  .footer {
+    padding: 28px 16px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .logo {
+    font-size: 19px;
+  }
+  .bag-link {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  .menu a {
+    margin: 0 4px;
+    font-size: 15px;
+  }
+  .hero-text h1 {
+    font-size: 34px;
+  }
+  .brand-button {
+    padding: 10px 13px;
+    font-size: 13px;
+  }
+}
+
+/* Visitors who asked their device for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+  
+/* ---------- 15. LINKS THAT JUMP TO A PRODUCT OR BRAND ---------- */
+/* When a link from another page lands on a product or a brand,
+   it gets a soft pink glow so you can see where you arrived. */
+.card:target, .brand-card:target {
+  box-shadow: 0 0 0 3px #f1bfb6, 0 14px 28px -16px rgba(150, 70, 90, 0.6);
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- KANHA BEAUTY & SHINE - Contact page.
+     Every page is its own .html file. The design of all pages is in style.css. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact us ♡ Kanha Beauty &amp; Shine</title>
+
+  <!-- Link to the CSS file (the design of every page) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= TOP BAR (the same on every page) ================= -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a class="logo" href="index.html">Kanha Beauty &amp; Shine ♡</a>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <a class="bag-link" href="bag.html">🛍 Bag</a>
+    </div>
+  </div>
+
+  <!-- ================= CONTACT PAGE ================= -->
+  <div id="contact">
+    <div class="section contact-layout">
+      <div class="contact-left">
+        <h2>We’d love to hear from you</h2>
+        <p>Questions about a shade or an order? We’re just a message away.</p>
+        <!-- CHANGE THE PHONE NUMBER BELOW (the text AND the tel: link) -->
+        <p class="contact-line">✉ <a href="mailto:Pawanereyansh5@gmail.com">Pawanereyansh5@gmail.com</a><br><br>☎ <a href="tel:+91 9783981554">+91  9783981554</a></p>
+        <div class="map-box"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.9015480367148!2d74.63289327521986!3d26.45890227692071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396be771274acdff%3A0x1039e9583f8acd62!2sKanha%20Beauty%20And%20Shine!5e0!3m2!1sen!2sin!4v1793002783620!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+       
+      </div>
+
+      <div class="contact-right">
+        <!-- "required" makes the browser check that the box is not empty.
+             type="email" makes the browser check that it looks like an email.
+             "mailto:" opens the visitor's email app with the message. -->
+        <form action="mailto:Pawanreyansh5@gmail.com" method="post" enctype="text/plain">
+          <input type="text"  name="Name"    placeholder="Your name" required>
+          <input type="email" name="Email"   placeholder="Your email" required>
+          <input type="text"  name="Subject" placeholder="Subject" required>
+          <textarea name="Message" rows="4" placeholder="Write your message…" required></textarea>
+          <button class="button" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (the same on every page) ================= -->
+  <div class="footer">
+    <div class="logo">Kanha Beauty &amp; Shine ♡</div>
+    <p>A little colour makes a big difference.</p>
+    <p>© 2026 Kanha Beauty &amp; Shine | BCA Student Project</p>
+  </div>
+
+</body>
+</html>
